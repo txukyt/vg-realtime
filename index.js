@@ -97,8 +97,7 @@ protobuf.load('path/to/gtfs-realtime.proto', (err, root) => {
 
          // Configurar el encabezado de respuesta para indicar el tipo de archivo
          res.setHeader('Content-Type', 'application/octet-stream');
-         res.setHeader('Content-Disposition', 'attachment; filename="GTFS_TripUpdates.pb"');
-         res.setHeader('Content-Encoding', 'gzip');
+         res.setHeader('Content-Disposition', 'attachment; filename="tripUpdates.pb"');
 
          // Enviar el buffer codificado como respuesta
          res.send(updatedBuffer);
