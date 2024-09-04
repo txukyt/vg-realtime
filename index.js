@@ -5,7 +5,7 @@ const path = require('path');
 const protobuf = require('protobufjs');
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 // Configura las rutas a los archivos del certificado
 const certPath = path.join(__dirname, 'path/to/dwildcard.vitoria-gasteiz.org.pem.crt');
@@ -59,7 +59,7 @@ protobuf.load('path/to/gtfs-realtime.proto', (err, root) => {
     });
 
     // URL de datos
-    const DATA_URL = 'https://dwww.vitoria-gasteiz.org/we001/http/vgTransit/realTime/tripUpdates.pb';
+    const DATA_URL = 'https://www.vitoria-gasteiz.org/we001/http/vgTransit/realTime/tripUpdates.pb';
 
     // Hacer la solicitud HTTPS
     https.get(DATA_URL, { agent }, (response) => {
