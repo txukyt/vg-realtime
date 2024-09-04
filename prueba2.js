@@ -52,9 +52,6 @@ protobuf.load('path/to/gtfs-realtime.proto', (err, root) => {
   app.get('/updates', (req, res) => {
     // Configurar el agente HTTPS con certificado
     const agent = new https.Agent({
-      cert: fs.readFileSync(certPath),
-      key: fs.readFileSync(keyPath),
-      ca: fs.readFileSync(caCertPath), // Certificado CA
       rejectUnauthorized: false // Validar el certificado del servidor
     });
 
@@ -93,15 +90,14 @@ protobuf.load('path/to/gtfs-realtime.proto', (err, root) => {
           duplicateDepartureToArrival(object);
 
          // Volver a codificar el objeto modificado
-         const updatedBuffer = FeedMessage.encode(FeedMessage.fromObject(object)).finish();
+         /*const updatedBuffer = FeedMessage.encode(FeedMessage.fromObject(object)).finish();
 
          // Configurar el encabezado de respuesta para indicar el tipo de archivo
-         res.setHeader('Content-Type', 'application/octet-stream');
-         res.setHeader('Content-Disposition', 'attachment; filename="GTFS_TripUpdates.pb"');
-         res.setHeader('Content-Encoding', 'gzip');
+         res.setHeader('Content-Type', 'application/x-protobuf');
+         res.setHeader('Content-Disposition', 'attachment; filename="updated_tripUpdates.pb"'); */
 
          // Enviar el buffer codificado como respuesta
-         res.send(updatedBuffer);
+         res.json(object);
 
 
         } catch (error) {
