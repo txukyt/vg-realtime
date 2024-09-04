@@ -7,13 +7,8 @@ const protobuf = require('protobufjs');
 const app = express();
 const port = process.env.PORT || 8080;
 
-// Configura las rutas a los archivos del certificado
-const certPath = path.join(__dirname, 'path/to/dwildcard.vitoria-gasteiz.org.pem.crt');
-const keyPath = path.join(__dirname, 'path/to/dwildcard.vitoria-gasteiz.org-rsa.key');
-const caCertPath = path.join(__dirname, 'path/to/chainSubordRaizIzenpe.cer');
-
 // Cargar el archivo .proto
-protobuf.load('path/to/gtfs-realtime.proto', (err, root) => {
+protobuf.load('gtfs-realtime/protobuf/gtfs-realtime.proto', (err, root) => {
   if (err) {
     console.error('Error loading protobuf definition:', err);
     process.exit(1);
