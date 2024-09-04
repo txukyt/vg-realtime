@@ -5,7 +5,7 @@ const path = require('path');
 const protobuf = require('protobufjs');
 
 const app = express();
-const port = 3000;
+const port = 8080;
 
 // Configura las rutas a los archivos del certificado
 const certPath = path.join(__dirname, 'path/to/dwildcard.vitoria-gasteiz.org.pem.crt');
