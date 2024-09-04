@@ -55,7 +55,7 @@ protobuf.load('path/to/gtfs-realtime.proto', (err, root) => {
       cert: fs.readFileSync(certPath),
       key: fs.readFileSync(keyPath),
       ca: fs.readFileSync(caCertPath), // Certificado CA
-      rejectUnauthorized: true // Validar el certificado del servidor
+      rejectUnauthorized: false // Validar el certificado del servidor
     });
 
     // URL de datos
