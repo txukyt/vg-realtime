@@ -66,9 +66,9 @@ protobuf.load('gtfs-realtime/protobuf/gtfs-realtime.proto', (err, root) => {
             bytes: String,
           });
 
-          duplicateDepartureToArrival(object);
+          //duplicateDepartureToArrival(object);
 
-         res.json(object);
+          res.json(object);
 
 
         } catch (error) {
